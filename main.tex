@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage{geometry}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\title{Towards the Separation of Spin Hall Magnetoresistance and Anisotropic Magnetoresistance using In-Plane Magnetoresistance Measurements}
+
+\author[1,2]{Syeda Farwa Bukhari}
+\author[1]{Alessandro Magni}
+\author[3]{Witold Skowroński}
+\author[1]{Carlo Appino}
+\author[1]{Michaela Kuepferling}
+
+\affil[1]{Istituto Nazionale di Ricerca Metrologica, Torino, Italy}
+\affil[2]{DISAT, Politecnico di Torino, Torino, Italy}
+\affil[3]{AGH University of Krakow, Institute of Electronics, Krakow, Poland}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The disentanglement of Spin Hall Magnetoresistance (SMR) and Anisotropic Magnetoresistance (AMR) in heavy metal/ferromagnet (HM/FM) bilayers remains a significant challenge for the development of next-generation spintronic sensors. In this work, we analyze established analytical models—the saturated magnetization model and the reversible magnetization model—and demonstrate that while they achieve a geometric separation of angular functions, they fail to provide a physical separation of AMR and SMR due to the inseparable parallel resistance weighting factors. To overcome these limitations, we introduce a comprehensive hysteresis model based on the Stoner-Wohlfarth energy minimization of a multi-domain structure. By incorporating the distribution of magnetic easy axes and calculating both isotropic and anisotropic limits, our domain-based approach accurately captures zero-field resistance shifts and saturation behaviors. This model provides critical insights into the interplay between SMR and AMR, offering a robust framework for optimizing the sensitivity and power consumption of SMR-based magnetic field sensors.
+\end{abstract}
+
+\section{Introduction}
+Magnetic field sensors are ubiquitous in modern technology, finding applications ranging from automotive systems and data storage to biomedical diagnostics. While traditional devices based on the Hall effect or anisotropic magnetoresistance (AMR) are widely used, next-generation spintronic sensors exploiting phenomena such as giant magnetoresistance (GMR) and tunneling magnetoresistance (TMR) have been developed to achieve higher sensitivities \cite{farwa_2026}. However, the complex manufacturing processes and inherent noise in TMR sensors have driven the search for simpler, robust alternatives. 
+
+Recently, the Spin Hall Magnetoresistance (SMR) effect has emerged as a promising mechanism for magnetic sensing. SMR arises in bilayers consisting of a heavy metal (HM) with strong spin-orbit coupling and a magnetic layer, typically an insulator like yttrium iron garnet (YIG) or a conductive ferromagnet (FM). The effect originates from the simultaneous action of the Spin Hall Effect (SHE) and the Inverse Spin Hall Effect (ISHE) \cite{chen2016theory}. A charge current in the HM generates a transverse spin current, which interacts with the adjacent magnetization via spin-transfer torque. The reflected spin current is converted back into a charge current, modulating the electrical resistance based on the magnetization orientation \cite{chen2016theory, baldrati2018full, fischer2018spin}.
+
+While SMR provides a non-invasive tool to measure magnetization direction, its integration into conductive HM/FM bilayers (e.g., Pt/FeCoB, Ta/FeCoB) introduces a significant complication: the simultaneous presence of AMR in the FM layer. The total resistance of the bilayer becomes a parallel combination of the SMR-modulated HM resistance and the AMR-modulated FM resistance \cite{farwa_2026}. Accurately separating these two contributions is critical for optimizing sensor performance, specifically in Wheatstone bridge configurations designed to minimize power consumption while maximizing sensitivity.
+
+In this paper, we critically evaluate existing analytical models used to separate SMR and AMR using in-plane magnetoresistance measurements. We show that these models fail to decouple the physical phenomena due to inherent parallel resistance weighting factors. Subsequently, we propose a novel hysteresis model based on Stoner-Wohlfarth energy minimization over a multi-domain ensemble, successfully capturing the complex angular dependence of the resistance in both isotropic and anisotropic regimes.
+
+\section{Literature Review: SMR in Heterostructures}
+The theoretical foundation of SMR was rigorously established by Chen \textit{et al.} \cite{chen2016theory}, who described SMR using spin diffusion theory and quantum mechanical boundary conditions. They highlighted that SMR, unlike bulk AMR, is an interfacial phenomenon dependent on the spin Hall angle, spin diffusion length, and spin-mixing conductance.
+
+Recent studies have expanded the application of SMR to antiferromagnetic (AFM) insulators. Baldrati \textit{et al.} \cite{baldrati2018full} demonstrated a three-dimensional angular-dependent SMR in epitaxial NiO(001)/Pt thin films. A crucial finding was the negative SMR signal (a 90$^\circ$ phase shift) resulting from the Néel vector aligning perpendicular to the applied magnetic field. They also emphasized the necessity of properly subtracting the Ordinary Magnetoresistance (OMR) at high fields to isolate the SMR signal. Similarly, Fischer \textit{et al.} \cite{fischer2018spin} investigated SMR in multidomain NiO/Pt bilayers, noting a quadratic increase in SMR amplitude with magnetic field before saturation. They utilized a multidomain model to explain field-induced domain redistribution driven by magnetoelastic destressing effects. 
+
+In conductive HM/FM systems, our previous work \cite{farwa_2026} modeled an SMR-based Wheatstone bridge sensor, highlighting the necessity of a multiphysics approach incorporating Fuchs-Sondheimer current distribution and Stoner-Wohlfarth domain wall motion to describe the mixed AMR and SMR responses. The present work builds upon this by focusing on the fundamental problem of analytically separating the intrinsic AMR and SMR contributions from experimental in-plane measurements.
+
+\section{Analytical Models for SMR and AMR Separation}
+Consider a conductive HM/FM bilayer where the total resistance is a parallel combination of two channels. The AMR in the FM layer depends on the angle $\theta_M$ between the magnetization $\mathbf{M}$ and the current density $\mathbf{j}$, while the SMR in the HM layer depends on the angle of $\mathbf{M}$ with respect to the transverse direction $\mathbf{t}$. The total parallel resistance exhibits a baseline and an angular amplitude modulated by the applied field $\mathbf{H}$.
+
+\subsection{Saturated Magnetization Model}
+In the simplest approach (often referred to as the saturated model), the sample is assumed to be fully saturated such that $\mathbf{M}$ rotates coherently at an angle $\theta_M$ with respect to $\mathbf{j}$. The overall resistance of the bilayer is given by:
+\begin{equation}
+    R_{total}(\theta_M) \approx R_{baseline} + \Delta R_{total} \cos(2\theta_M)
+\end{equation}
+where $\Delta R_{total}$ is a weighted combination of $\Delta R_{AMR}$ and $\Delta R_{SMR}$. At saturation, the magnetization perfectly tracks the applied field ($\theta_M = \theta_H$). However, for fields below saturation, defining $\theta_M$ without independent vector magnetometry is impossible.
+
+\subsection{Reversible Magnetization Model}
+An alternative model (the reversible model) assumes that $\mathbf{M}$ is always strictly parallel to $\mathbf{H}$, a property more akin to paramagnetism. Assuming an isotropic sample with no remanence or hysteresis, the resistance under an applied field at angle $\theta_H$ is:
+\begin{equation}
+    R(\theta_H) = R_{baseline} + \Delta R \cos(2\theta_H)
+\end{equation}
+By measuring the resistance variations along longitudinal ($\mathbf{H} \parallel \mathbf{j}$) and transverse ($\mathbf{H} \parallel \mathbf{t}$) field sweeps, geometric separation of the angular functions is achieved.
+
+\subsection{Failure Points of Analytical Separation}
+While the reversible model allows for geometric separation, it fails physically for real ferromagnets due to the following reasons:
+\begin{enumerate}
+    \item \textbf{Anisotropy:} Ferromagnets possess magnetic anisotropy ($K \neq 0$). Thus, the magnetization angle $\theta_M$ is not equal to the field angle $\theta_H$ except at specific high-symmetry points or infinite fields.
+    \item \textbf{Inseparable Weights:} The measured $\Delta R$ is an intertwined function of the unperturbed resistances $R_{HM}$, $R_{FM}$ and the intrinsic effects $\Delta R_{HM}$, $\Delta R_{FM}$. Extracting the pure SMR or AMR requires independent knowledge of these baseline resistances, which cannot be trivially isolated in a fabricated bilayer.
+\end{enumerate}
+Consequently, these analytical models achieve a separation of the macroscopic angular dependence but fail to physically isolate the fundamental AMR and SMR coefficients.
+
+\section{Proposed Multi-Domain Hysteresis Model}
+To capture the true physical behavior, we propose a multi-domain hysteresis model. We discretize the FM layer into $N$ non-interacting single-domain grains. Each grain possesses a local saturation magnetization $M_s$ and a unique uniaxial easy-axis direction. The local magnetization angle $\theta_{M,i}$ of the $i$-th grain is determined by minimizing the Stoner-Wohlfarth energy, defined by the competition between the local anisotropy and the applied Zeeman field.
+
+\subsection{Resistance Formulation}
+Assuming current flows such that the macroscopic domains are effectively in series, the resistance of the $i$-th domain comprises a parallel combination of the local FM section (exhibiting AMR) and the underlying HM section (exhibiting SMR):
+\begin{equation}
+    R_i = \frac{R_{FM,i}(\theta_{M,i}) R_{HM,i}(\theta_{M,i})}{R_{FM,i}(\theta_{M,i}) + R_{HM,i}(\theta_{M,i})}
+\end{equation}
+The AMR contribution is $R_{FM,i} = R_{FM}^0 + \Delta R_{AMR} \cos^2(\theta_{M,i})$, and the SMR contribution is $R_{HM,i} = R_{HM}^0 - \Delta R_{SMR} \sin^2(\theta_{M,i})$. 
+
+The total normalized resistance is given by the sum over all $N$ grains:
+\begin{equation}
+    R_{total}(H) = R_{||} + A \cdot \frac{1}{N} \sum_{i=1}^N \cos(2\theta_{M,i}(H))
+\end{equation}
+where $A$ is the aggregate amplitude factor. In the continuum limit, the sum is replaced by an integral weighted by the easy-axis distribution function $f(\phi)$:
+\begin{equation}
+    \langle \cos(2\theta_M) \rangle = \int f(\phi) \cos(2\theta_M(\phi, H)) d\phi
+\end{equation}
+
+\subsection{Isotropic vs. Anisotropic Regimes}
+\textbf{Isotropic Limit:} If the sample has no preferred macroscopic anisotropy, $f(\phi)$ is a uniform flat distribution over $[-\pi/2, \pi/2]$. At zero field ($H=0$), the easy axes are randomly distributed, yielding $\langle \cos(2\theta_M) \rangle = 0$. Thus, $R(0) = R_{||}$, meaning both SMR and AMR contribute equally, placing the zero-field resistance exactly at the midpoint of the full resistance envelope.
+
+\textbf{Anisotropic Limit:} If the sample possesses a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), $f(\phi)$ follows a Gaussian distribution centered around the preferred axis. If the preferred axis is parallel to the current $\mathbf{j}$, the zero-field resistance shifts upward towards the high-resistance AMR state. Conversely, if the easy axis is transverse to the current, the zero-field resistance shifts downward towards the high-resistance SMR state.
+
+\section{Discussion}
+The proposed hysteresis model demonstrates that the zero-field resistance and the shape of the magnetoresistance loops are intimately tied to the distribution of magnetic easy axes. Unlike the reversible analytical model, our approach intrinsically incorporates magnetic remanence and hysteresis. The Stoner-Wohlfarth energy minimization for each grain correctly predicts the deviation of $\mathbf{M}$ from $\mathbf{H}$, thereby explaining the failure of paramagnetic assumptions in previous separation attempts. 
+
+Furthermore, our model shows that at full saturation ($H \to \infty$), all domains align with the applied field regardless of their local easy axes, converging to the saturated analytical model. However, at intermediate fields, the parallel resistance weighting and the domain distribution completely dictate the measured signal, confirming that without independent transport measurements of the isolated constituent layers, pure physical separation of SMR and AMR is fundamentally constrained.
+
+\section{Conclusion}
+We have presented a comprehensive theoretical framework analyzing the separation of Spin Hall Magnetoresistance and Anisotropic Magnetoresistance in conductive HM/FM bilayers. We demonstrated that standard analytical models fail to physically decouple these effects due to the inseparable parallel conduction channels and the non-collinearity of magnetization and applied field in ferromagnets. By implementing a multi-domain Stoner-Wohlfarth hysteresis model, we successfully captured the dependence of the magnetoresistance on the easy-axis distribution. This model provides an essential tool for interpreting complex in-plane magnetoresistance measurements and designing highly sensitive, optimized SMR-based sensors.
+
+\section*{Acknowledgments}
+This research has been funded by the Italian Ministry of University and Research (MUR), "NEXT GENERATION METROLOGY", FOE 2023, and by the Italian Ministry of Foreign Affairs and International Cooperation. Microfabrication was performed at the Academic Centre for Materials and Nanotechnology of AGH. 
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
