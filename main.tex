@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{xcolor}
+\usepackage{subcaption}
 
 \geometry{margin=1in}
 
@@ -115,11 +116,51 @@ where $A$ is the aggregate amplitude factor. In the continuum limit, the sum is 
 \end{equation}
 
 \subsection{Isotropic vs. Anisotropic Regimes}
-\textbf{Isotropic Limit:} If the sample has no preferred macroscopic anisotropy, $f(\phi)$ is a uniform flat distribution over $[-\pi/2, \pi/2]$. At zero field ($H=0$), the easy axes are randomly distributed, yielding $\langle \cos(2\theta_M) \rangle = 0$. Thus, $R(0) = R_{||}$, meaning both SMR and AMR contribute equally, placing the zero-field resistance exactly at the midpoint of the full resistance envelope.
+\begin{figure}[htbp]
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/isotropic_easyaxesdist.png}
+         \caption{Uniform flat distribution of magnetic easy axes.}
+         \label{fig:iso_dist}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/isotropic_microscopic_domain_config.png}
+         \caption{Microscopic domain configuration for an isotropic sample.}
+         \label{fig:iso_config}
+     \end{subfigure}
+        \caption{Magnetic properties of an isotropic sample: (a) easy-axis distribution and (b) corresponding microscopic domain arrangement.}
+        \subsection{Isotropic Limit}
+        \begin{figure}[htbp]
+        ...
+        \end{figure}
 
-\textbf{Anisotropic Limit:} If the sample possesses a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), $f(\phi)$ follows a Gaussian distribution centered around the preferred axis. If the preferred axis is parallel to the current $\mathbf{j}$, the zero-field resistance shifts upward towards the high-resistance AMR state. Conversely, if the easy axis is transverse to the current, the zero-field resistance shifts downward towards the high-resistance SMR state.
+        If the sample has no preferred macroscopic anisotropy, $f(\phi)$ is a uniform flat distribution over $[-\pi/2, \pi/2]$. At zero field ($H=0$), the easy axes are randomly distributed, yielding $\langle \cos(2\theta_M) \rangle = 0$. Thus, $R(0) = R_{||}$, meaning both SMR and AMR contribute equally, placing the zero-field resistance exactly at the midpoint of the full resistance envelope.
 
-\section{Discussion}
+        \subsection{Anisotropic Limit}
+        \begin{figure}[htbp]
+             \centering
+             \begin{subfigure}[b]{0.45\textwidth}
+                 \centering
+                 \includegraphics[width=\textwidth]{figures/aniso_easyaxesdist.png}
+                 \caption{Gaussian distribution of magnetic easy axes.}
+                 \label{fig:aniso_dist}
+             \end{subfigure}
+             \hfill
+             \begin{subfigure}[b]{0.45\textwidth}
+                 \centering
+                 \includegraphics[width=\textwidth]{figures/aniso_microscopic_domain_config.png}
+                 \caption{Microscopic domain configuration for an anisotropic sample.}
+                 \label{fig:aniso_config}
+             \end{subfigure}
+                \caption{Magnetic properties of an anisotropic sample: (a) easy-axis distribution and (b) corresponding microscopic domain arrangement.}
+                \label{fig:anisotropic_sample}
+        \end{figure}
+
+        If the sample possesses a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), $f(\phi)$ follows a Gaussian distribution centered around the preferred axis. If the preferred axis is parallel to the current $\mathbf{j}$, the zero-field resistance shifts upward towards the high-resistance AMR state. Conversely, if the easy axis is transverse to the current, the zero-field resistance shifts downward towards the high-resistance SMR state.
+
 The proposed hysteresis model demonstrates that the zero-field resistance and the shape of the magnetoresistance loops are intimately tied to the distribution of magnetic easy axes. Unlike the reversible analytical model, our approach intrinsically incorporates magnetic remanence and hysteresis. The Stoner-Wohlfarth energy minimization for each grain correctly predicts the deviation of $\mathbf{M}$ from $\mathbf{H}$, thereby explaining the failure of paramagnetic assumptions in previous separation attempts. 
 
 Furthermore, our model shows that at full saturation ($H \to \infty$), all domains align with the applied field regardless of their local easy axes, converging to the saturated analytical model. However, at intermediate fields, the parallel resistance weighting and the domain distribution completely dictate the measured signal, confirming that without independent transport measurements of the isolated constituent layers, pure physical separation of SMR and AMR is fundamentally constrained.
