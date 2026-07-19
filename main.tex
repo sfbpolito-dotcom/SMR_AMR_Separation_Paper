@@ -201,12 +201,50 @@ Substituting the continuous averages, the complete model equation is:
 % \end{equation}
 
 \subsection{Isotropic Sample}
-To model an ideally isotropic sample, we assume the macroscopic magnetic behavior exhibits no preferred orientation. At the microscopic level, this implies that the individual single-domain grains are completely randomly oriented. Consequently, the local easy axis angles ($\varphi$), defined with respect to the charge current direction $j$, follow a uniform (flat) probability distribution over the physically unique range of $[-\frac{\pi}{2}, \frac{\pi}{2}]$. To ensure the probability is conserved over this interval, the normalized distribution function is a constant:\begin{equation}P(\varphi) = \frac{1}{\pi} \quad \text{for} \quad \varphi \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\end{equation}By substituting this uniform distribution into our general continuous model, the integral over the probability function simplifies, and the total resistance for the isotropic sample becomes:\begin{equation}R_{iso} = R_{\parallel} + \frac{\psi_{AMR}}{\pi} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \cos^2\alpha_{eq} , d\varphi - \frac{\psi_{SMR}}{\pi} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \sin^2\alpha_{eq} , d\varphi\end{equation}
+\begin{figure}[htbp]
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/isotropic_easyaxesdist.png}
+         \caption{Uniform flat distribution of magnetic easy axes.}
+         \label{fig:iso_dist}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/isotropic_microscopic_domain_config.png}
+         \caption{Microscopic domain configuration for an isotropic sample.}
+         \label{fig:iso_config}
+     \end{subfigure}
+        \caption{Magnetic properties of an isotropic sample: (a) easy-axis distribution and (b) corresponding microscopic domain arrangement.}
+        \label{fig:isotropic_sample}
+\end{figure}
+To model an ideally isotropic sample, 
+ we assume the macroscopic magnetic behavior exhibits no preferred orientation. At the microscopic level, this implies that the individual single-domain grains are completely randomly oriented. Consequently, the local easy axis angles ($\varphi$), defined with respect to the charge current direction $j$, follow a uniform (flat) probability distribution over the physically unique range of $[-\frac{\pi}{2}, \frac{\pi}{2}]$. To ensure the probability is conserved over this interval, the normalized distribution function is a constant:\begin{equation}P(\varphi) = \frac{1}{\pi} \quad \text{for} \quad \varphi \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\end{equation}By substituting this uniform distribution into our general continuous model, the integral over the probability function simplifies, and the total resistance for the isotropic sample becomes:\begin{equation}R_{iso} = R_{\parallel} + \frac{\psi_{AMR}}{\pi} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \cos^2\alpha_{eq} , d\varphi - \frac{\psi_{SMR}}{\pi} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \sin^2\alpha_{eq} , d\varphi\end{equation}
 At the physical extremes of zero field and complete saturation, the isotropic model can be easily evaluated. However, extracting the continuous resistance curve across intermediate fields is non-trivial, requiring Stoner-Wohlfarth energy minimization to numerically compute the requisite statistical averages.
 % \textbf{Isotropic Limit:} If the sample has no preferred macroscopic anisotropy, $f(\phi)$ is a uniform flat distribution over $[-\pi/2, \pi/2]$. At zero field ($H=0$), the easy axes are randomly distributed, yielding $\langle \cos(2\theta_M) \rangle = 0$. Thus, $R(0) = R_{||}$, meaning both SMR and AMR contribute equally, placing the zero-field resistance exactly at the midpoint of the full resistance envelope.
 
 \subsection{Anisotropic Sample}
-Conversely, to model an anisotropic sample where the individual grains exhibit a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), the easy axis angles are no longer uniform. Instead, it is assumed that the distribution of easy axes follows a Gaussian probability distribution centered around a macroscopic preferred direction, $\varphi_0$:\begin{equation}P(\varphi) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right]\end{equation}Here, the parameter $\sigma$ defines the width of the distribution and acts as an inverse measure of the macroscopic anisotropy strength; a smaller $\sigma$ indicates a highly textured sample with tightly aligned easy axes.By substituting this specific probability density function into our established continuous model framework, the ensemble averages are now weighted by this Gaussian distribution. The complete, explicit model equation for the total resistance of the anisotropic sample becomes:\begin{multline}R_{aniso} = R_{\parallel} + \frac{\psi_{AMR}}{\sigma\sqrt{2\pi}} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \cos^2\alpha_{eq} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right] d\varphi - \- \frac{\psi_{SMR}}{\sigma\sqrt{2\pi}} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \sin^2\alpha_{eq} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right] d\varphi\end{multline}
+\begin{figure}[htbp]
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/aniso_easyaxesdist.png}
+         \caption{Gaussian distribution of magnetic easy axes.}
+         \label{fig:aniso_dist}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/aniso_microscopic_domain_config.png}
+         \caption{Microscopic domain configuration for an anisotropic sample.}
+         \label{fig:aniso_config}
+     \end{subfigure}
+        \caption{Magnetic properties of an anisotropic sample: (a) easy-axis distribution and (b) corresponding microscopic domain arrangement.}
+        \label{fig:anisotropic_sample}
+\end{figure}
+Conversely, to model an anisotropic sample 
+ where the individual grains exhibit a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), the easy axis angles are no longer uniform. Instead, it is assumed that the distribution of easy axes follows a Gaussian probability distribution centered around a macroscopic preferred direction, $\varphi_0$:\begin{equation}P(\varphi) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right]\end{equation}Here, the parameter $\sigma$ defines the width of the distribution and acts as an inverse measure of the macroscopic anisotropy strength; a smaller $\sigma$ indicates a highly textured sample with tightly aligned easy axes.By substituting this specific probability density function into our established continuous model framework, the ensemble averages are now weighted by this Gaussian distribution. The complete, explicit model equation for the total resistance of the anisotropic sample becomes:\begin{multline}R_{aniso} = R_{\parallel} + \frac{\psi_{AMR}}{\sigma\sqrt{2\pi}} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \cos^2\alpha_{eq} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right] d\varphi - \- \frac{\psi_{SMR}}{\sigma\sqrt{2\pi}} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \sin^2\alpha_{eq} \exp\left[ - \frac{(\varphi - \varphi_0)^2}{2\sigma^2} \right] d\varphi\end{multline}
 In practice, generating the macroscopic resistance curve $R(H, \theta)$ for any given applied field strength and direction requires a sequential numerical procedure. First, for every local easy axis angle $\varphi$, the equilibrium magnetization angle $\alpha_{eq}(H, \theta, \varphi)$ is determined by minimizing the local Stoner-Wohlfarth energy $E(\alpha)$. Second, the corresponding angular dependencies, $\cos^2\alpha_{eq}$ and $\sin^2\alpha_{eq}$, are evaluated for each grain. Third, these local contributions are integrated over the entire sample space, weighted by the anisotropic probability distribution $P(\varphi)$, to compute the macroscopic ensemble averages $\langle \cos^2\alpha_{eq} \rangle$ and $\langle \sin^2\alpha_{eq} \rangle$. Finally, these integrated averages are substituted into the overarching transport equation to compute the total field- and angle-dependent resistance of the bilayer.\\
 % \textbf{Anisotropic Limit:} If the sample possesses a macroscopic preferred direction (e.g., from field-annealing or shape anisotropy), $f(\phi)$ follows a Gaussian distribution centered around the preferred axis. If the preferred axis is parallel to the current $\mathbf{j}$, the zero-field resistance shifts upward towards the high-resistance AMR state. Conversely, if the easy axis is transverse to the current, the zero-field resistance shifts downward towards the high-resistance SMR state.
 
